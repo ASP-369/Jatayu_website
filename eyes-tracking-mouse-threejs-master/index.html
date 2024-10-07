@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Jatayu - Drone Innovation</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Google Font for Orbitron -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            background: linear-gradient(to bottom, #000033, #000000); /* Gradient background */
+            color: white;
+        }
+
+        /* Navbar */
+        header {
+            background-color: rgba(0, 0, 50, 0.8); /* Transparent blue */
+            padding: 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 20;
+            backdrop-filter: blur(8px); /* Makes the navbar stand out */
+        }
+
+        header .nav-links {
+            display: flex;
+            justify-content: space-between;
+            color: white;
+            list-style: none;
+        }
+
+        header .nav-links a {
+            margin-right: 20px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        header .nav-links a:hover {
+            color: #00bfff;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            background-color: white; /* Set background to white */
+        }
+
+        /* Canvas styling for 3D model */
+        #droneCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .hero-content {
+            z-index: 10;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: #00bfff;
+            font-family: 'Orbitron', sans-serif; /* Orbitron font for futuristic feel */
+        }
+
+        .hero button {
+            background-color: #1f2937;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            margin-top: 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .hero button:hover {
+            background-color: #00bfff;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 50px 0;
+            background-color: #000033;
+        }
+
+        .gallery-item img {
+            width: 250px;
+            height: auto;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item img:hover {
+            transform: scale(1.1); /* Zoom effect on hover */
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: #1f2937;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Responsive Canvas Styling */
+        canvas {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <header>
+        <nav class="container mx-auto">
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#signin">Sign In</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section with 3D Model -->
+    <section class="hero" id="home">
+        <div id="droneCanvas"></div>
+        <div class="hero-content">
+            <h1>Welcome to Project Jatayu</h1>
+            <button>Explore Now</button>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="gallery-item">
+            <img src="https://png.pngtree.com/background/20230626/original/pngtree-black-background-showcasing-a-3d-rendered-x-ray-drone-picture-image_4058016.jpg" alt="Drone Image 1">
+        </div>
+        <div class="gallery-item">
+            <img src="https://png.pngtree.com/background/20230520/original/pngtree-small-black-drone-is-light-up-with-colorful-colors-picture-image_2671322.jpg" alt="Drone Image 2">
+        </div>
+        <div class="gallery-item">
+            <img src="https://img.freepik.com/premium-photo/white-quadcopter-modern-drone-with-camera-black-background-3d-rendering_844516-1601.jpg" alt="Drone Image 3">
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Project Jatayu. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Three.js and OBJ Loader -->
+    <script src="js/min/three.min.js"></script>
+    <script src="js/OBJLoader.js"></script>
+    <script>
+        var scene, camera, renderer, drone;
+
+        function init() {
+            // Scene setup
+            scene = new THREE.Scene();
+            scene.background = new THREE.Color(0xffffff); // White background
+
+            camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+            camera.position.z = 280;
+
+            // Renderer setup
+            renderer = new THREE.WebGLRenderer({ alpha: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            document.getElementById('droneCanvas').appendChild(renderer.domElement);
+
+            // Lighting
+            var light = new THREE.DirectionalLight(0xf2f2f2, 1);
+            light.position.set(200, 100, 800);
+            scene.add(light);
+
+            // Load drone model
+            var loader = new THREE.OBJLoader();
+            loader.load('models/Drone/drone.obj', function (object) {
+                drone = object;
+                drone.scale.set(30, 30, 30);
+                drone.position.y = 0;
+                scene.add(drone);
+            });
+
+            // Handle window resize
+            window.addEventListener('resize', onWindowResize, false);
+
+            animate();
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+
+            // Rotate drone
+            if (drone) {
+                drone.rotation.y += 0.01;
+            }
+
+            render();
+        }
+
+        function render() {
+            renderer.render(scene, camera);
+        }
+
+        function onWindowResize() {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        }
+
+        window.onload = init;
+    </script>
+</body>
+</html>
