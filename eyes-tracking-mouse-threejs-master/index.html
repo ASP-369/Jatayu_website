@@ -171,15 +171,17 @@
     </footer>
 
     <!-- Three.js and OBJ Loader -->
-    <script src="js/min/three.min.js"></script>
-    <script src="js/OBJLoader.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.rawgit.com/mrdoob/three.js/r128/examples/js/loaders/OBJLoader.js"></script>
     <script>
         var scene, camera, renderer, drone;
+        var keys = {}; // Store the state of keys
+        var speed = 2; // Movement speed
 
         function init() {
             // Scene setup
             scene = new THREE.Scene();
-            scene.background = new THREE.Color(0xffffff); // White background
+            scene.background = new THREE.Color(0xffffff);
 
             camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
             camera.position.z = 280;
@@ -194,17 +196,29 @@
             light.position.set(200, 100, 800);
             scene.add(light);
 
-            // Load drone model
+            // Load drone model and add color
             var loader = new THREE.OBJLoader();
             loader.load('models/Drone/drone.obj', function (object) {
                 drone = object;
                 drone.scale.set(30, 30, 30);
                 drone.position.y = 0;
+
+                // Add color to the drone
+                drone.traverse(function (child) {
+                    if (child.isMesh) {
+                        child.material = new THREE.MeshStandardMaterial({ color: 0x00bfff }); // Add blue color
+                    }
+                });
+
                 scene.add(drone);
             });
 
             // Handle window resize
             window.addEventListener('resize', onWindowResize, false);
+
+            // Key event listeners
+            document.addEventListener('keydown', function(event) { keys[event.key] = true; });
+            document.addEventListener('keyup', function(event) { keys[event.key] = false; });
 
             animate();
         }
@@ -212,8 +226,14 @@
         function animate() {
             requestAnimationFrame(animate);
 
-            // Rotate drone
+            // Move drone based on keys pressed
             if (drone) {
+                if (keys['w']) drone.position.z -= speed; // Move forward
+                if (keys['s']) drone.position.z += speed; // Move backward
+                if (keys['a']) drone.position.x -= speed; // Move left
+                if (keys['d']) drone.position.x += speed; // Move right
+
+                // Rotate drone
                 drone.rotation.y += 0.01;
             }
 
