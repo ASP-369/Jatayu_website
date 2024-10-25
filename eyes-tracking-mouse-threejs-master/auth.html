@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Sign Up</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./auth.css"> <!-- Corrected path to app.css based on structure -->
+</head>
+<body>
+    <div class="auth-container">
+        <!-- Login Form -->
+        <div class="form-container" id="loginContainer">
+            <div class="form-header">
+                <h1>Login</h1>
+                <p>Welcome back! Please enter your details.</p>
+            </div>
+            <form id="loginForm" class="form">
+                <input type="email" placeholder="Email" required />
+                <input type="password" placeholder="Password" required />
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="role" value="student" checked />
+                        Student
+                    </label>
+                    <label>
+                        <input type="radio" name="role" value="admin" />
+                        Admin
+                    </label>
+                </div>
+                <button type="submit">Login</button>
+            </form>
+            <p>Don't have an account? <a href="#signup" onclick="toggleForms()">Sign Up</a></p>
+        </div>
+
+        <!-- Signup Form -->
+        <div class="form-container hidden" id="signupContainer">
+            <div class="form-header">
+                <h1>Sign Up</h1>
+                <p>Create an account to get started.</p>
+            </div>
+            <form id="signupForm" class="form">
+                <input type="text" placeholder="Username" required />
+                <input type="email" placeholder="Email" required />
+                <input type="password" placeholder="Password" required />
+                <input type="date" placeholder="Date of Birth" required />
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="gender" value="male" checked />
+                        Male
+                    </label>
+                    <label>
+                        <input type="radio" name="gender" value="female" />
+                        Female
+                    </label>
+                </div>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="role" value="student" checked />
+                        Student
+                    </label>
+                    <label>
+                        <input type="radio" name="role" value="admin" />
+                        Admin
+                    </label>
+                </div>
+                <button type="submit">Sign Up</button>
+            </form>
+            <p>Already have an account? <a href="#login" onclick="toggleForms()">Login</a></p>
+        </div>
+    </div>
+
+    <script src="./js/Login.js"></script> <!-- Link to Login.js -->
+    <script src="./js/Signup.js"></script> <!-- Link to Signup.js -->
+    <script>
+        // Function to toggle between Login and Signup forms
+        const toggleForms = () => {
+            document.getElementById('loginContainer').classList.toggle('hidden');
+            document.getElementById('signupContainer').classList.toggle('hidden');
+        };
+    </script>
+</body>
+</html>
