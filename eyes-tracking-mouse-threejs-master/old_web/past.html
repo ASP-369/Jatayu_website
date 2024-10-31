@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Past Drone Projects</title>
+  <style>
+    /* Main page title styling */
+    h1 {
+      font-size: 28px;
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      text-transform: uppercase;
+      color: #ffffff;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+      margin-bottom: 40px;
+    }
+
+    /* Page background and body settings */
+    body {
+      background-size: cover;
+      background-position: center;
+      background-color: #000033;
+      background-attachment: fixed;
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Flex container for drone projects */
+    .container {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 20px;
+      margin: 0 auto;
+      max-width: 1200px;
+    }
+
+    /* Box design for each drone project */
+    .box {
+      width: 30%;
+      text-align: center;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+      font-size: 18px;
+      color: white;
+      background-color: rgba(58, 117, 177, 0.7); /* Semi-transparent navy blue */
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+    }
+
+    /* Image inside the boxes */
+    .box img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    /* Button for interactivity */
+    .box button {
+      background-color: #00c4cc;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin-top: 15px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .box button:hover {
+      background-color: #008f8a;
+    }
+
+    /* Hover effects for box */
+    .box:hover {
+      transform: translateY(-10px); /* Makes the box "lift" like a drone */
+      box-shadow: 0px 12px 25px rgba(0, 0, 0, 0.5);
+    }
+
+    .box:hover img {
+      transform: scale(1.1); /* Zoom-in effect on image */
+    }
+
+    /* Custom animation for box content */
+    .box .description {
+      margin-top: 10px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .box:hover .description {
+      opacity: 1; /* Fade-in effect for project descriptions */
+    }
+
+  </style>
+</head>
+<body>
+  <h1>Past Drone Projects</h1>
+
+  <!-- First row of projects -->
+  <div class="container">
+    <!-- First Drone Project -->
+    <div class="box">
+      <img src="os.png" alt="Octocopter Sentinel">
+      <p>Octocopter Sentinel</p>
+      <div class="description">The eight-rotor drone offers high lift capacity and excellent stability for heavy loads. Its dual batteries provide extended flight time, while the high payload capacity enhances versatility for various applications.</div>
+    </div>
+
+    <!-- Second Drone Project -->
+    <div class="box">
+      <img src="ss.png" alt="Silver surfer">
+      <p>Silver Surfer: The Reconnaissance Plane</p>
+      <div class="description">The fixed-wing drone features high flight endurance and can carry air-to-air missiles for short-range bombardment. Its high propulsive efficiency and low cost make it an appealing choice for military and defense applications.</div>
+    </div>
+
+    <!-- Third Drone Project -->
+    <div class="box">
+      <img src="vayu.png" alt="Vayu">
+      <p>Vayu: The Flagship and Rescue Drone</p>
+      <div class="description">The fixed-wing drone offers high flight stability and extended flight times, equipped with an advanced imaging system for effective data collection. Its communication capabilities enhance operation in complex environments, ensuring optimal performance in surveillance and reconnaissance.</div>
+    </div>
+  </div>
+
+  <!-- Second row of projects -->
+  <div class="container">
+    <!-- Fourth Drone Project -->
+    <div class="box">
+      <img src="bs.png" alt="Balsa structure">
+      <p>The Balsa structure of Vayu</p>
+      <div class="description">The laser cutting technique is used to precisely shape a cambered airfoil, which enhances structural stability. This design provides high lift even at low angles of attack, making it efficient for aerodynamic performance.</div>
+    </div>
+
+    <!-- Fifth Drone Project -->
+    <div class="box">
+      <img src="eh.png" alt="Eclipse">
+      <p>Eclipse : Hexacopter</p>
+      <div class="description">This drone features enhanced stability and autonomous flight capabilities, combined with advanced imaging and obstacle avoidance technology. Its modular design allows for easy customization, while offering a high payload capacity for versatile applications.</div>
+    </div>
+
+    <!-- Sixth Drone Project -->
+    <div class="box">
+      <img src="ps.png" alt="Sampathi">
+      <p>Project Sampathi</p>
+      <div class="description">This system is compatible with drones sized between 450 mm to 600 mm, offering 3-axis rotation with slip rings for unrestricted movement. It enables easy determination of drone stability and allows endurance measurement through various maneuvers.</div>
+    </div>
+  </div>
+
+</body>
+</html>

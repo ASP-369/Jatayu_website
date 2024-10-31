@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Future Drone Projects</title>
+  <style>
+    /* Main page title styling */
+    h1 {
+      font-size: 28px;
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      text-transform: uppercase;
+      color: #ffffff;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+      margin-bottom: 40px;
+    }
+
+    /* Page background and body settings */
+    body{
+      background-size: cover;
+      background-position: center;
+      background-color: #000033;
+      background-attachment: fixed;
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Flex container for drone projects */
+    .container {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 20px;
+      margin: 0 auto;
+      max-width: 1200px;
+    }
+
+    /* Box design for each drone project */
+    .box {
+      width: 30%;
+      text-align: center;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+      font-size: 18px;
+      color: white;
+      background-color: rgba(58, 117, 177, 0.7); /* Semi-transparent navy blue */
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+    }
+
+    /* Image inside the boxes */
+    .box img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    /* Button for interactivity */
+    .box button {
+      background-color: #00c4cc;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin-top: 15px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .box button:hover {
+      background-color: #008f8a;
+    }
+
+    /* Hover effects for box */
+    .box:hover {
+      transform: translateY(-10px); /* Makes the box "lift" like a drone */
+      box-shadow: 0px 12px 25px rgba(0, 0, 0, 0.5);
+    }
+
+    .box:hover img {
+      transform: scale(1.1); /* Zoom-in effect on image */
+    }
+
+    /* Custom animation for box content */
+    .box .description {
+      margin-top: 10px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .box:hover .description {
+      opacity: 1; /* Fade-in effect for project descriptions */
+    }
+
+  </style>
+</head>
+<body>
+  <h1>Future Drone Projects</h1>
+
+  <div class="container">
+    <!-- First Drone Project -->
+    <div class="box">
+      <img src="hc.jpg" alt="Happy Crash">
+      <p>Happy Crash</p>
+      <div class="description">This project focuses on creating safe crash mechanisms for drones.</div>
+
+    </div>
+
+    <!-- Second Drone Project -->
+    <div class="box">
+      <img src="sd1.png" alt="Spider Drone">
+      <p>Spider Drone</p>
+      <div class="description">A spider-like drone capable of complex maneuvers and tight space operations.</div>
+      
+    </div>
+
+    <!-- Third Drone Project -->
+    <div class="box">
+      <img src="md.jpg" alt="Miniature Drone">
+      <p>Miniature Drone</p>
+      <div class="description">Compact and efficient drones designed for surveillance and indoor navigation.</div>
+      
+    </div>
+  </div>
+
+</body>
+</html>
