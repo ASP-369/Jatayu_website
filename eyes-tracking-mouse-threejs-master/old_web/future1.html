@@ -6,6 +6,57 @@
   <title>Future Drone Projects</title>
   <style>
     /* Main page title styling */
+
+  header {
+            background-color: rgba(0, 0, 50, 0.8);
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 20;
+            backdrop-filter: blur(8px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+  header .brand {
+            display: flex;
+            align-items: center;
+        }
+
+  header .brand-text {
+            color: #90cdf4; /* Tailwind's text-blue-200 */
+            font-weight: bold;
+            font-family: 'Orbitron', sans-serif;
+            margin-left: 5px;
+        }
+
+    header .logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        header .nav-links {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        header .nav-links a {
+            margin-left: 30px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        header .nav-links a:hover {
+            color: #00bfff;
+        }
+
     h1 {
       font-size: 28px;
       font-family: 'Arial', sans-serif;
@@ -103,6 +154,20 @@
   </style>
 </head>
 <body>
+  <header>
+    <div class="brand">
+        <img src="image_jatayu.png" alt="Club Logo" class="logo">
+        <span class="brand-text">Project Jatayu</span>
+    </div>
+    <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#Projects">Projects</a>
+        <a href="#Achievements">Achievements</a>
+        <a href="#contact">Contact Us</a>
+        <a href="#about">About Us</a>
+        <a href="#signin">Sign In</a>
+    </nav>
+</header>
   <h1>Future Drone Projects</h1>
 
   <div class="container">
