@@ -7,14 +7,21 @@
   <style>
     /* Main page title styling */
     h1 {
-      font-size: 28px;
-      font-family: 'Arial', sans-serif;
-      text-align: center;
-      text-transform: uppercase;
-      color: #ffffff;
-      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-      margin: 80px 0 40px; /* Adjusted to add space from the top */
-    }
+  font-size: 3rem;
+  font-family: 'Orbitron', sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+  color: #e0e0e0;
+  background: linear-gradient(45deg, #00bfff, #ffffff, #00bfff); /* Blue gradient */
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 2px;
+  text-shadow: 0px 0px 8px rgba(0, 191, 255, 0.8), 0px 0px 12px rgba(0, 191, 255, 1); /* Blue glow effect */
+  animation: lightSweep 3s linear infinite;
+  margin: 80px 0 40px;
+}
+
 
     /* Page background and body settings */
     body {
@@ -99,6 +106,13 @@
     .box:hover .description {
       opacity: 1; /* Fade-in effect for project descriptions */
     }
+    .box p {
+  font-size: 1.6rem; /* Increased font size */
+  font-weight: bold;
+  margin-top: 10px;
+  color: #e0e0e0; /* Light color for better contrast */
+}
+
 
     header {
       background-color: rgba(0, 0, 50, 0.8);
@@ -155,21 +169,7 @@
 
     /* Main page title styling */
 /* Main page title styling */
-h1 {
-  font-size: 3rem;
-  font-family: 'Orbitron', sans-serif;
-  text-align: center;
-  text-transform: uppercase;
-  color: #e0e0e0;
-  background: linear-gradient(45deg, #b0bec5, #ffffff, #b0bec5);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; /* Metallic gradient effect */
-  letter-spacing: 2px;
-  text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3), 0px 0px 12px rgba(255, 255, 255, 0.8);
-  animation: lightSweep 3s linear infinite;
-  margin: 80px 0 40px;
-}
+
 
 /* Keyframes for light sweep animation */
 @keyframes lightSweep {
@@ -234,16 +234,16 @@ h1 {
 
   <header>
     <div class="brand">
-        <img src="jatayu_logo.png" alt="Club Logo" class="logo">
+        <img src="../jatayu_logo.png" alt="Club Logo" class="logo">
         <span class="brand-text">Project Jatayu</span>
     </div>
     <nav class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="aboutus.html">About Us</a>
-        <a href="achievments.html">Achievements</a>
+        <a href="../index.html">Home</a>
+        <a href="../aboutus.html">About Us</a>
+        <a href="../achievments.html">Achievements</a>
         <a href="#contact">Contact Us</a>
         <a href="eyes-tracking-mouse-threejs-master/auth.html">Sign In</a>
-        <a href="old_web/idk.html">Projects</a>
+        <a href="../old_web/">Projects</a>
     </nav>
   </header>
 
@@ -298,12 +298,6 @@ h1 {
       <div class="description">This system is compatible with drones sized between 450 mm to 600 mm, offering 3-axis rotation with slip rings for unrestricted movement. It enables easy determination of drone stability and allows endurance measurement through various maneuvers.</div>
     </div>
   </div>
- <!-- Contact Section -->
- <section class="section" id="contact" style="animation-delay: 2s;">
-  <h2>Contact Us</h2>
-  <p>RV College of Engineering, Bengaluru</p>
-  <p>Phone: Pranav J - 9999999999</p>
-  <div id="map" style="width:100%;height:300px;"></div>
   <script>
       function initMap() {
           var location = {lat: 12.9237, lng: 77.4983};
@@ -328,7 +322,7 @@ h1 {
       <a href="https://youtube.com" target="_blank">YouTube</a>
       <a href="https://facebook.com" target="_blank">Facebook</a>
   </div>
-  <p>&copy; 2024 Project Jatayu. All Rights Reserved.</p>
+  <p style="color:white;">&copy; 2024 Project Jatayu. All Rights Reserved.</p>
 </footer>
 
 <script src="eyes-tracking-mouse-threejs-master/js/OBJLoader.js"></script>
