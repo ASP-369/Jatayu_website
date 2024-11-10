@@ -13,7 +13,7 @@
       text-transform: uppercase;
       color: #ffffff;
       text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-      margin-bottom: 40px;
+      margin: 80px 0 40px; /* Adjusted to add space from the top */
     }
 
     /* Page background and body settings */
@@ -100,11 +100,142 @@
       opacity: 1; /* Fade-in effect for project descriptions */
     }
 
+    header {
+      background-color: rgba(0, 0, 50, 0.8);
+      padding: 10px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(8px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header .brand {
+      display: flex;
+      align-items: center;
+    }
+
+    header .brand-text {
+      color: #90cdf4;
+      font-weight: bold;
+      font-family: 'Orbitron', sans-serif;
+      margin-left: 10px;
+    }
+
+    header .logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+
+    header .nav-links {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  padding-right: 20px; /* Add padding to the right */
+}
+
+
+    header .nav-links a {
+      margin-left: 30px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    header .nav-links a:hover {
+      color: #00bfff;
+    }
+
+    /* Main page title styling */
+/* Main page title styling */
+h1 {
+  font-size: 3rem;
+  font-family: 'Orbitron', sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+  color: #e0e0e0;
+  background: linear-gradient(45deg, #b0bec5, #ffffff, #b0bec5);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; /* Metallic gradient effect */
+  letter-spacing: 2px;
+  text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3), 0px 0px 12px rgba(255, 255, 255, 0.8);
+  animation: lightSweep 3s linear infinite;
+  margin: 80px 0 40px;
+}
+
+/* Keyframes for light sweep animation */
+@keyframes lightSweep {
+  0% {
+    background-position: -100%;
+  }
+  100% {
+    background-position: 200%;
+  }
+}
+
+
+
+    /* Contact Section */
+#contact {
+    background-color: rgba(0, 0, 50, 0.8); /* Dark blue transparent background */
+    color: white; /* Text color */
+    padding: 40px 20px; /* Padding for spacing */
+    text-align: left; /* Center-align text */
+    margin-top: 40px; /* Space above the section */
+    animation: slideUp 1s forwards; /* Animation for slide-up effect */
+}
+
+#contact h2 {
+    font-size: 2.5rem; /* Large font size for header */
+    font-weight: bold; /* Bold text for header */
+    margin-bottom: 20px; /* Space below the header */
+    color: white;
+
+#contact p {
+    font-size: 1.2rem; /* Medium font size for paragraph text */
+    margin: 10px 0; /* Vertical spacing for paragraphs */
+}
+
+#map {
+    width: 100%; /* Full width */
+    height: 300px; /* Fixed height for map */
+    margin-top: 20px; /* Space above the map */
+    border-radius: 10px; /* Rounded corners for map */
+}
+
+
+
   </style>
 </head>
 <body>
+
+  <header>
+    <div class="brand">
+        <img src="jatayu_logo.png" alt="Club Logo" class="logo">
+        <span class="brand-text">Project Jatayu</span>
+    </div>
+    <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="aboutus.html">About Us</a>
+        <a href="achievments.html">Achievements</a>
+        <a href="#contact">Contact Us</a>
+        <a href="eyes-tracking-mouse-threejs-master/auth.html">Sign In</a>
+        <a href="old_web/idk.html">Projects</a>
+    </nav>
+  </header>
+
   <h1>Past Drone Projects</h1>
 
+  <!-- Content continues here... -->
+  
   <!-- First row of projects -->
   <div class="container">
     <!-- First Drone Project -->
@@ -152,6 +283,43 @@
       <div class="description">This system is compatible with drones sized between 450 mm to 600 mm, offering 3-axis rotation with slip rings for unrestricted movement. It enables easy determination of drone stability and allows endurance measurement through various maneuvers.</div>
     </div>
   </div>
+ <!-- Contact Section -->
+ <section class="section" id="contact" style="animation-delay: 2s;">
+  <h2>Contact Us</h2>
+  <p>RV College of Engineering, Bengaluru</p>
+  <p>Phone: Pranav J - 9999999999</p>
+  <div id="map" style="width:100%;height:300px;"></div>
+  <script>
+      function initMap() {
+          var location = {lat: 12.9237, lng: 77.4983};
+          var map = new google.maps.Map(document.getElementById("map"), {
+              zoom: 15,
+              center: location
+          });
+          var marker = new google.maps.Marker({
+              position: location,
+              map: map
+          });
+      }
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+</section>
 
+<!-- Footer -->
+<footer>
+  <div class="social-icons">
+      <a href="https://github.com" target="_blank">GitHub</a>
+      <a href="https://instagram.com" target="_blank">Instagram</a>
+      <a href="https://youtube.com" target="_blank">YouTube</a>
+      <a href="https://facebook.com" target="_blank">Facebook</a>
+  </div>
+  <p>&copy; 2024 Project Jatayu. All Rights Reserved.</p>
+</footer>
+
+<script src="eyes-tracking-mouse-threejs-master/js/OBJLoader.js"></script>
+<script src="eyes-tracking-mouse-threejs-master/models/Drone/drone.obj"></script>
+<script>
+  // Code to track the drone model to cursor and initialize animations for sections
+</script>
 </body>
 </html>
