@@ -3,72 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Future Drone Projects</title>
+  <title>Past Drone Projects</title>
   <style>
     /* Main page title styling */
-
-  header {
-            background-color: rgba(0, 0, 50, 0.8);
-            padding: 10px;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 20;
-            backdrop-filter: blur(8px);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-  header .brand {
-            display: flex;
-            align-items: center;
-        }
-
-  header .brand-text {
-            color: #90cdf4; /* Tailwind's text-blue-200 */
-            font-weight: bold;
-            font-family: 'Orbitron', sans-serif;
-            margin-left: 5px;
-        }
-
-    header .logo {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-        }
-
-        header .nav-links {
-          display: flex;
-            align-items: center;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        header .nav-links a {
-            margin-left: 30px;
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s ease;
-        }
-
-        header .nav-links a:hover {
-            color: #00bfff;
-        }
-
     h1 {
-      font-size: 28px;
-      font-family:'Orbitron','Arial', sans-serif;
-      text-align: center;
-      text-transform: uppercase;
-      color: #ffffff;
-      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-      margin-bottom: 40px;
-    }
+  font-size: 3rem;
+  font-family: 'Orbitron', sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+  color: #e0e0e0;
+  background: linear-gradient(45deg, #00bfff, #ffffff, #00bfff); /* Blue gradient */
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 2px;
+  text-shadow: 0px 0px 8px rgba(0, 191, 255, 0.8), 0px 0px 12px rgba(0, 191, 255, 1); /* Blue glow effect */
+  animation: lightSweep 3s linear infinite;
+  margin: 80px 0 40px;
+}
 
     /* Page background and body settings */
-    body{
+    body {
       background-size: cover;
       background-position: center;
       background-color: #000033;
@@ -129,6 +84,12 @@
     .box button:hover {
       background-color: #008f8a;
     }
+    .box p {
+  font-size: 1.6rem; /* Increased font size */
+  font-weight: bold;
+  margin-top: 10px;
+  color: #e0e0e0; /* Light color for better contrast */
+}
 
     /* Hover effects for box */
     .box:hover {
@@ -151,23 +112,77 @@
       opacity: 1; /* Fade-in effect for project descriptions */
     }
 
+    header {
+      background-color: rgba(0, 0, 50, 0.8);
+      padding: 10px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(8px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header .brand {
+      display: flex;
+      align-items: center;
+    }
+
+    header .brand-text {
+      color: #90cdf4;
+      font-weight: bold;
+      font-family: 'Orbitron', sans-serif;
+      margin-left: 10px;
+    }
+
+    header .logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+
+    header .nav-links {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  padding-right: 20px; /* Add padding to the right */
+}
+
+
+    header .nav-links a {
+      margin-left: 30px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    header .nav-links a:hover {
+      color: #00bfff;
+    }
   </style>
 </head>
 <body>
+  <!-- Navbar -->
   <header>
     <div class="brand">
-        <img src="image_jatayu.png" alt="Club Logo" class="logo">
+        <img src="../jatayu_logo.png" alt="Club Logo" class="logo">
         <span class="brand-text">Project Jatayu</span>
     </div>
     <nav class="nav-links">
-        <a href="#home">Home</a>
-        <a href="#Projects">Projects</a>
-        <a href="#Achievements">Achievements</a>
+        <a href="../index.html">Home</a>
+        <a href="../aboutus.html">About Us</a>
+        <a href="../achievments.html">Achievements</a>
         <a href="#contact">Contact Us</a>
-        <a href="#about">About Us</a>
-        <a href="#signin">Sign In</a>
+        <a href="eyes-tracking-mouse-threejs-master/auth.html">Sign In</a>
+        <a href="old_web/idk.html">Projects</a>
     </nav>
-</header>
+  </header>
+
   <h1>Future Drone Projects</h1>
 
   <div class="container">
@@ -176,7 +191,6 @@
       <img src="hc.jpg" alt="Happy Crash">
       <p>Happy Crash</p>
       <div class="description">This project focuses on creating safe crash mechanisms for drones.</div>
-
     </div>
 
     <!-- Second Drone Project -->
@@ -184,7 +198,6 @@
       <img src="sd1.png" alt="Spider Drone">
       <p>Spider Drone</p>
       <div class="description">A spider-like drone capable of complex maneuvers and tight space operations.</div>
-      
     </div>
 
     <!-- Third Drone Project -->
@@ -192,7 +205,6 @@
       <img src="md.jpg" alt="Miniature Drone">
       <p>Miniature Drone</p>
       <div class="description">Compact and efficient drones designed for surveillance and indoor navigation.</div>
-      
     </div>
   </div>
 
